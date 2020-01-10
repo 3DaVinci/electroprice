@@ -1,14 +1,13 @@
 #' Scraping data from www.globalpetrolprices.com
 #'
-#' We use https://www.globalpetrolprices.com/electricity_prices/ url to download
-#' electroenegy prices by counry
+#' We use \href{https://www.globalpetrolprices.com/electricity_prices/}{www.globalpetrolprices.com}
+#' to download electricity prices by country (\code\link{electroprice2019})
 #'
 #' @import rvest
 #' @import dplyr
 #' @import stringr
 #' @import purrr
-
-
+#'
 #' @export
 scrap_globalpetrolprices_com  <- function() {
   # Intitial url list for scraping
@@ -76,7 +75,7 @@ scrap_globalpetrolprices_com  <- function() {
       household_kwh = household_kwh %>% str_remove(",") %>% as.double(),
       business_kwh = business_kwh %>% str_remove(",") %>% as.double()
     ) %>%
-    # Delete repeated rows
+    # Delete repeated rows (US dollar countries)
     distinct()
 
 }
