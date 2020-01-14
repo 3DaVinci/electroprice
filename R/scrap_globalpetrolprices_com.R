@@ -9,6 +9,7 @@
 #' @import purrr
 #'
 #' @export
+
 scrap_globalpetrolprices_com  <- function() {
   # Intitial url list for scraping
   url_initial <-
@@ -49,7 +50,7 @@ scrap_globalpetrolprices_com  <- function() {
 
     table %>%
       transmute(
-        country = country,
+        country = align_country_name(country),
         currency = currency,
         household_kwh = as.character(household_kwh),
         business_kwh = as.character(business_kwh),
@@ -61,7 +62,8 @@ scrap_globalpetrolprices_com  <- function() {
           str_extract(".*(?=The latest business and household electricity)"),
         data_source_url = url,
         data_source_read_date = Sys.Date()
-      )
+      ) %>%
+      drop_na()
   }
 
 

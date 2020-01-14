@@ -6,7 +6,7 @@
 #' @format A data frame with 231 rows and 8 variables:
 #' \describe{
 #'   \item{counry}{Country name}
-#'   \item{currency}{Currency name}
+#'   \item{currency}{Currency name aligned with \code{\link{align_country_name}}}
 #'   \item{household_kwh}{Electricity prices for households}
 #'   \item{business_kwh}{Electricity prices for business}
 #'   \item{year}{Year by information source}
