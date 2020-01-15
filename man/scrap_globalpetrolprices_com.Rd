@@ -8,5 +8,5 @@ scrap_globalpetrolprices_com()
 }
 \description{
 We use \href{https://www.globalpetrolprices.com/electricity_prices/}{www.globalpetrolprices.com}
-to download electricity prices by country (\code\link{electroprice2019})
+to download electricity prices by country (\link{electroprice2019})
 }

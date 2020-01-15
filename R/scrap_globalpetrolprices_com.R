@@ -1,9 +1,10 @@
 #' Scraping data from www.globalpetrolprices.com
 #'
 #' We use \href{https://www.globalpetrolprices.com/electricity_prices/}{www.globalpetrolprices.com}
-#' to download electricity prices by country (\code\link{electroprice2019})
+#' to download electricity prices by country (\link{electroprice2019})
 #'
-#' @import rvest
+#' @importFrom xml2 read_html
+#' @importFrom rvest html_nodes html_node html_attr html_table
 #' @import dplyr
 #' @import stringr
 #' @import purrr

@@ -1,7 +1,9 @@
 #' Scrap wikipedia country area data
 #'
-#' @import rvest
+#' @importFrom xml2 read_html
+#' @importFrom rvest html_nodes html_node html_attr html_table
 #' @import dplyr
+#' @import stringr
 #'
 #' @export
 
@@ -42,7 +44,11 @@ scrap_wiki_counry_area <-  function() {
         str_remove("\\(.+\\)") %>%
         str_remove("\\[.+\\]") %>%
         str_remove_all(",") %>%
-        as.integer()
+        as.integer(),
+      water_pct = `% water` %>% as.double(),
+      description = Notes,
     ) %>%
+    # filter Denmark
+    filter(!str_detect(description, "UN figure does not include the entire Kingdom of Denmark area")) %>%
     drop_na()
 }
